@@ -1,0 +1,9 @@
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\bin\Debug\netstandard2.1\Cursos.OnLine.Dominio.deps.json
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\bin\Debug\netstandard2.1\Cursos.OnLine.Dominio.dll
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\bin\Debug\netstandard2.1\Cursos.OnLine.Dominio.pdb
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\obj\Debug\netstandard2.1\Cursos.OnLine.Dominio.csprojAssemblyReference.cache
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\obj\Debug\netstandard2.1\Cursos.OnLine.Dominio.AssemblyInfoInputs.cache
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\obj\Debug\netstandard2.1\Cursos.OnLine.Dominio.AssemblyInfo.cs
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\obj\Debug\netstandard2.1\Cursos.OnLine.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\obj\Debug\netstandard2.1\Cursos.OnLine.Dominio.dll
+C:\Users\Dell\source\repos\CursosOnLine\Cursos.OnLine.Dominio\obj\Debug\netstandard2.1\Cursos.OnLine.Dominio.pdb
