@@ -15,6 +15,9 @@ namespace Cursos.OnLine.Dominio
             if (string.IsNullOrEmpty(nome))
                 throw new ArgumentNullException("O Nome não pode ser nulo ou vazio");
 
+            if (string.IsNullOrEmpty(descricao))
+                throw new ArgumentNullException("A descrição não pode ser nula ou vazia");
+
             if (cargaHoraria < 1)
                 throw new ArgumentException("A carga horária não pode ser menor que 1");
 

@@ -59,8 +59,22 @@ namespace CursosOnLine.Dominio.Testes
             //Arrange = ctor
             //Act
             //Assert
-            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(nomeInvalido).Build())
-                .ComMensagem("O Nome não pode ser nulo ou vazio");
+            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(nomeInvalido)
+            .Build()).ComMensagem("O Nome não pode ser nulo ou vazio");
+        }
+
+
+        //Teste de descrição nula ou vazia
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void NaoPermitirCriarCursoComDescricaoNuloOuVazio(string descricaoInvalida)
+        {
+            //Arrange = ctor
+            //Act
+            //Assert
+            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(descricaoInvalida)
+            .Build()).ComMensagem("A descrição não pode ser nula ou vazia");
         }
 
 
