@@ -25,7 +25,7 @@ namespace CursosOnLine.Dominio.Testes
         public CriandoCursos()
         {
             _nome = "Informática Fundamentos";
-            _descricao = "Uma descriç~so...";
+            _descricao = "Uma descrição...";
             _cargaHoraria = 12;
             _publicoAlvo = Publico.Estudante;
             _preco = 300.00;
@@ -50,31 +50,17 @@ namespace CursosOnLine.Dominio.Testes
         }
 
 
-        //Teste de nome nulo ou vazio
+        //Teste de nome e descrição nulos ou vazios
         [Theory]
         [InlineData("")]
         [InlineData(null)]
-        public void NaoPermitirCriarCursoComNomeNuloOuVazio(string nomeInvalido)
+        public void NaoPermitirCriarCursoComNomeEDescricaoNuloOuVazio(string dadosInvalidos)
         {
             //Arrange = ctor
             //Act
             //Assert
-            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(nomeInvalido)
-            .Build()).ComMensagem("O Nome não pode ser nulo ou vazio");
-        }
-
-
-        //Teste de descrição nula ou vazia
-        [Theory]
-        [InlineData("")]
-        [InlineData(null)]
-        public void NaoPermitirCriarCursoComDescricaoNuloOuVazio(string descricaoInvalida)
-        {
-            //Arrange = ctor
-            //Act
-            //Assert
-            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(descricaoInvalida)
-            .Build()).ComMensagem("A descrição não pode ser nula ou vazia");
+            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(dadosInvalidos).ComDescricao(dadosInvalidos)
+            .Build()).ComMensagem("O Nome/Descrição não podem ser nulos ou vazios");
         }
 
 
