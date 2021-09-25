@@ -5,11 +5,12 @@ namespace Cursos.OnLine.Dominio
     public class Curso
     {
         public string Nome { get; set; }
+        public string Descricao { get; set; }
         public int CargaHoraria { get; set; }
         public Publico PublicoAlvo { get; set; }
         public double Preco { get; set; }
 
-        public Curso(string nome, int cargaHoraria, Publico publicoAlvo, double preco)
+        public Curso(string nome,string descricao,int cargaHoraria, Publico publicoAlvo, double preco)
         {
             if (string.IsNullOrEmpty(nome))
                 throw new ArgumentNullException("O Nome não pode ser nulo ou vazio");
@@ -23,6 +24,7 @@ namespace Cursos.OnLine.Dominio
             }
 
             Nome = nome;
+            Descricao = descricao;
             CargaHoraria = cargaHoraria;
             PublicoAlvo = publicoAlvo;
             Preco = preco;

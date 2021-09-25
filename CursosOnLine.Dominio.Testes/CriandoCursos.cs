@@ -1,13 +1,21 @@
 using Cursos.OnLine.Dominio;
 using Cursos.OnLine.Dominio._Enum;
+using CursosOnLine.Dominio.Testes._Builder;
 using CursosOnLine.Dominio.Testes.Mensagem;
 using System;
 using Xunit;
 namespace CursosOnLine.Dominio.Testes
+
+    //Eu, enquanto administrador, quero criar e editar cursos para que sejam abertas matrículas para o mesmo.
+    //CRITÉRIOS DE ACEITE:
+    //* Criar um curso com nome, descrição, carga horária, público alvo e preço
+    //*Todos os campos do curso são obrigatórios.
+
 {
     public class CriandoCursos
     {
         private readonly string _nome;
+        private readonly string _descricao;
         private readonly int _cargaHoraria;
         private readonly Publico _publicoAlvo;
         private readonly double _preco;
@@ -17,6 +25,7 @@ namespace CursosOnLine.Dominio.Testes
         public CriandoCursos()
         {
             _nome = "Informática Fundamentos";
+            _descricao = "Uma descriç~so...";
             _cargaHoraria = 12;
             _publicoAlvo = Publico.Estudante;
             _preco = 300.00;
@@ -30,10 +39,11 @@ namespace CursosOnLine.Dominio.Testes
             //Arrange ctor
 
             //Act
-            var curso = new Curso(_nome, _cargaHoraria, _publicoAlvo, _preco);
+            var curso = new Curso(_nome, _descricao, _cargaHoraria, _publicoAlvo, _preco);
 
             //Assert
             Assert.Equal(_nome, curso.Nome);
+            Assert.Equal(_descricao, curso.Descricao);
             Assert.Equal(_cargaHoraria, curso.CargaHoraria);
             Assert.Equal(_publicoAlvo, curso.PublicoAlvo);
             Assert.Equal(_preco, curso.Preco);
@@ -49,8 +59,8 @@ namespace CursosOnLine.Dominio.Testes
             //Arrange = ctor
             //Act
             //Assert
-            Assert.Throws<ArgumentNullException>(() => new Curso(nomeInvalido, _cargaHoraria,
-                _publicoAlvo, _preco)).ComMensagem("O Nome não pode ser nulo ou vazio");
+            Assert.Throws<ArgumentNullException>(() => CursoBuilder.Novo().ComNome(nomeInvalido).Build())
+                .ComMensagem("O Nome não pode ser nulo ou vazio");
         }
 
 
@@ -64,8 +74,8 @@ namespace CursosOnLine.Dominio.Testes
             //Arrange = ctor
             //Act
             //Assert
-            Assert.Throws<ArgumentException>(() => new Curso(_nome, cargaHorariaInvalida,
-                _publicoAlvo, _preco)).ComMensagem("A carga horária não pode ser menor que 1");
+            Assert.Throws<ArgumentException>(() => CursoBuilder.Novo().ComCargaHoraria(cargaHorariaInvalida).Build())
+                .ComMensagem("A carga horária não pode ser menor que 1");
 
         }
 
@@ -80,8 +90,8 @@ namespace CursosOnLine.Dominio.Testes
             //Arrange = ctor
             //Act
             //Assert
-            Assert.Throws<ArgumentException>(() => new Curso(_nome, _cargaHoraria,
-                _publicoAlvo, precoInvalido)).ComMensagem("O valor do curso não pode ser menor que R$ 50,00");
+            Assert.Throws<ArgumentException>(() => CursoBuilder.Novo().ComPreco(precoInvalido).Build())
+                .ComMensagem("O valor do curso não pode ser menor que R$ 50,00");
         }
     }
 }
